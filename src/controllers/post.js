@@ -4,7 +4,7 @@ const HttpStatus = require('http-status-codes');
 module.exports = {
     async getAllPosts(req, res) {
         try {
-            const allPosts = await post.find()
+            const allPosts = await post.find().sort({ created_at_i: -1 })
             return res.status(HttpStatus.OK).json({
                 message: 'All post',
                 allPosts
